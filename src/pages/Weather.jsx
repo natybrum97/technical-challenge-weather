@@ -48,8 +48,8 @@ const LargerContainer = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: ${(props) => (props.darkmode === 'true' ? "black" : "#FFF")};
-  height: 100vh;
+  background-color: ${(props) => (props.darkmode === 'true' ? "black" : "#EFEFEF")};
+  height: auto;
 `;
 
 
