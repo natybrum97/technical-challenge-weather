@@ -13,7 +13,6 @@ export default function SmallerContainerContent() {
     const { fahrenheit, darkMode, changeForFahrenheit, changeForDarkMode } = useContext(WeatherContext);
 
     const [city, setCity] = useState('');
-    const [email, setEmail] = useState('');
 
     const formattedDate = getFormattedDate();
     const formattedDateTime = getFormattedDateTime();
