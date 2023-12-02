@@ -21,6 +21,10 @@ const Header = styled.div`
     display:flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: 1230px) {
+    margin-top: 25px;
+  }
 `
 
 const ImageHeader = styled.img`

@@ -25,7 +25,7 @@ export default function LargerContainerContent() {
 
             <CityContainer>
                 <City darkmode={darkmode ? 'true' : 'false'}>São Paulo</City>
-                <RightsReserved darkmode={darkmode ? 'true' : 'false'}>Lat: 44.34   Long: 10.99</RightsReserved>
+                <Coordinates darkmode={darkmode ? 'true' : 'false'}>Lat: 44.34   Long: 10.99</Coordinates>
             </CityContainer>
 
             <WeatherCharacteristics>
@@ -56,6 +56,8 @@ export default function LargerContainerContent() {
 
             <RightsReserved darkmode={darkmode ? 'true' : 'false'}>Dados fornecidos pela <span>Open Weather API</span></RightsReserved>
 
+            <RightsReservedResponsive darkmode={darkmode ? 'true' : 'false'}>Todos os direitos reservados. 2023.</RightsReservedResponsive>
+
         </PageContainer>
 
     )
@@ -69,6 +71,7 @@ const PageContainer = styled.div`
     justify-content: flex-start;
     align-items: center;
     background-color: ${(props) => (props.darkmode === 'true' ? "black" : "#EFEFEF")};
+
 `
 
 const DaysContainer = styled.div`
@@ -77,6 +80,13 @@ const DaysContainer = styled.div`
     display:flex;
     justify-content: flex-start;
     align-items: center;
+
+    @media (max-width: 1230px) {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+  }
 `
 const Today = styled.button`
     width: 120px;
@@ -90,6 +100,18 @@ const Today = styled.button`
     background-color: ${(props) => (props.darkmode === 'true' ? "black" : "#EFEFEF")};
     color: ${(props) => (props.darkmode === 'true' ? "#FFF" : "#222222")};
     cursor: pointer;
+
+    @media (max-width: 1230px) {
+    border-radius: 32px;
+    width: 180px;
+    height: 100px;
+    font-size: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(117.33deg, #4D4494 22.83%, #4F43AE 90.03%);
+    color: #FFF;
+  }
 `
 
 const NextDays = styled.button`
@@ -100,15 +122,32 @@ const NextDays = styled.button`
     letter-spacing: 0em;
     text-align: left;
     border: none;
-    background-color: pink;
     background-color: ${(props) => (props.darkmode === 'true' ? "black" : "#EFEFEF")};
     color: ${(props) => (props.darkmode === 'true' ? "#FFF" : "#222222")};
     cursor: pointer;
+
+    @media (max-width: 1230px) {
+    width: 450px;
+    border-radius: 32px;
+    width: 400px;
+    height: 100px;
+    font-size: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(117.33deg, #4D4494 22.83%, #4F43AE 90.03%);
+    color: #FFF;
+  }
 `
 const CityContainer = styled.div`
     width: calc(100% - 10%);
     height: 180px;
     margin-top: 50px;
+
+    @media (max-width: 1230px) {
+    height: 130px;
+    margin-top: 0px;
+  }
 `
 
 const WeatherCharacteristics = styled.div`
@@ -142,6 +181,34 @@ const RightsReserved = styled.h4`
     span{
         color:#96A7F2;
     }
+    @media (max-width: 1230px) {
+    width: 100%;
+    text-align: center;
+  }
+`
+const Coordinates = styled.h4`
+    width: calc(100% - 10%);
+    height: 48px;
+    text-align: left;
+    color: ${(props) => (props.darkmode === 'true' ? "#FFF" : "#222222")};
+    
+    @media (max-width: 1230px) {
+    width: 100%;
+    text-align: left;
+  }
+`
+const RightsReservedResponsive = styled.h4`
+    display: none;
+    width: calc(100% - 10%);
+    height: 48px;
+    text-align: left;
+    color: ${(props) => (props.darkmode === 'true' ? "#FFF" : "#222222")};
+
+    @media (max-width: 1230px) {
+    display: block;
+    text-align: center;
+    margin-bottom: 50px;
+  }
 `
 
 const Recommendation = styled.div`
@@ -157,6 +224,14 @@ const Recommendation = styled.div`
     font-weight: 400;
     line-height: 48px;
     letter-spacing: 0em;
+
+    @media (max-width: 1230px) {
+    text-align: center;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `
 
 const Text = styled.div`
@@ -191,5 +266,16 @@ const City = styled.h1`
     justify-content: flex-start;
     align-items: center;
     color: ${(props) => (props.darkmode === 'true' ? "#FFF" : "#222222")};
+
+    @media (max-width: 1550px) {
+    width:100%;
+    font-family: 'Poppins';
+    font-size: 80px;
+    font-weight: 600;
+    line-height: 70px;
+    letter-spacing: 0em;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
 `;
 

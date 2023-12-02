@@ -55,6 +55,10 @@ const RightsReserved = styled.h4`
     height: 48px;
     text-align: left;
     color: ${(props) => (props.darkmode === 'true' ? "#FFF" : "#222222")};
+
+    @media (max-width: 1230px) {
+    display: none;
+  }
 `
 
 
