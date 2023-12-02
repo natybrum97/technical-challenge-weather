@@ -5,7 +5,7 @@ export const WeatherContext = createContext();
 export function WeatherProvider({ children }) {
 
     const [fahrenheit, setFahrenheit] = useState(false);
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkmode, setDarkMode] = useState(false);
 
     const changeForFahrenheit = (checked) => {
         setFahrenheit(checked);
@@ -16,7 +16,7 @@ export function WeatherProvider({ children }) {
     };
 
     return (
-        <WeatherContext.Provider value={{fahrenheit, setFahrenheit, darkMode, setDarkMode, changeForFahrenheit, changeForDarkMode}}>
+        <WeatherContext.Provider value={{fahrenheit, setFahrenheit, darkmode, setDarkMode, changeForFahrenheit, changeForDarkMode}}>
             {children}
         </WeatherContext.Provider>
     )

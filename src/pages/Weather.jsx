@@ -7,18 +7,18 @@ import { WeatherContext } from "../contexts/WeatherContext";
 
 export default function Weather() {
 
-  const { darkMode } = useContext(WeatherContext);
+  const { darkmode } = useContext(WeatherContext);
 
   return (
     <>
 
       <Container>
 
-        <SmallerContainer darkMode={darkMode}>
+        <SmallerContainer darkmode = {darkmode ? 'true' : 'false'}>
           <SmallerContainerContent />
         </SmallerContainer>
 
-        <LargerContainer darkMode={darkMode}>
+        <LargerContainer darkmode = {darkmode ? 'true' : 'false'}>
           <LargerContainerContent />
         </LargerContainer>
 
@@ -39,7 +39,7 @@ const SmallerContainer = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${(props) => (props.darkMode ? "#333" : "#FFF")};
+  background-color: ${(props) => (props.darkmode === 'true' ? "#333" : "#FFF")};
 `;
 
 const LargerContainer = styled.section`
@@ -48,7 +48,7 @@ const LargerContainer = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: ${(props) => (props.darkMode ? "black" : "#FFF")};
+  background-color: ${(props) => (props.darkmode === 'true' ? "black" : "#FFF")};
   height: 100vh;
 `;
 
