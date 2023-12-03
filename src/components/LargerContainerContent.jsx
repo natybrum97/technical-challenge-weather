@@ -5,6 +5,7 @@ import WhatTheDay from "./LargerContainerWhatTheDay";
 import LargerContainerCity from "./LargerContainerCity";
 import LargerContainerWeatherCharacteristics from "./LargerContainerWeatherCharacteristics";
 import LargerContainerRecomendation from "./LargerContainerRecomendation";
+import WeatherChart from "./Larger ContainerGraphic";
 
 export default function LargerContainerContent() {
 
@@ -37,6 +38,12 @@ export default function LargerContainerContent() {
 
         </>
       )}
+      {today === false &&
+        <>
+          <WeatherChart />
+          <Graphic darkmode={darkmode ? 'true' : 'false'}>Dados fornecidos pela <span>Open Weather API</span></Graphic>
+        </>
+      }
 
 
     </PageContainer>
@@ -66,6 +73,21 @@ const RightsReserved = styled.h4`
     @media (max-width: 1230px) {
     width: 100%;
     text-align: center;
+  }
+`
+const Graphic = styled.h4`
+    width: calc(100% - 10%);
+    height: 48px;
+    text-align: left;
+    margin-top:33px;
+    color: ${(props) => (props.darkmode === 'true' ? "#FFF" : "#222222")};
+    span{
+        color:#96A7F2;
+    }
+    @media (max-width: 1230px) {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 70px;
   }
 `
 

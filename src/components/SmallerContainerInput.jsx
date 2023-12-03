@@ -1,13 +1,14 @@
 import styled from "styled-components";
 import Search from '../assets/search.png';
-import { useState, useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import axios from 'axios';
 import { WeatherContext } from "../contexts/WeatherContext";
 
 export default function SmallerContainerInput() {
 
-  const [city, setCity] = useState('São Paulo');
-  const { weatherData, setWeatherData } = useContext(WeatherContext);
+  const { weatherData, setWeatherData, city, setCity } = useContext(WeatherContext);
+
+  console.log(city);
 
   useEffect(() => {
     getWeather();

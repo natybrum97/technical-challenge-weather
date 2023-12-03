@@ -62,6 +62,11 @@ const LargerContainer = styled.section`
   align-items: center;
   background-color: ${(props) => (props.darkmode === 'true' ? "black" : "#EFEFEF")};
   height: auto;
+
+  @media (max-width: 1230px) {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 
