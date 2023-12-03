@@ -22,7 +22,7 @@ export default function LargerContainerCity() {
 
 const CityContainer = styled.div`
     width: calc(100% - 10%);
-    height: 180px;
+    height: auto;
     margin-top: 50px;
 
     @media (max-width: 1230px) {

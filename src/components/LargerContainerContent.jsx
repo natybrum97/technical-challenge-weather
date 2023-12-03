@@ -4,6 +4,7 @@ import { WeatherContext } from "../contexts/WeatherContext";
 import WhatTheDay from "./LargerContainerWhatTheDay";
 import LargerContainerCity from "./LargerContainerCity";
 import LargerContainerWeatherCharacteristics from "./LargerContainerWeatherCharacteristics";
+import LargerContainerRecomendation from "./LargerContainerRecomendation";
 
 export default function LargerContainerContent() {
 
@@ -26,7 +27,7 @@ export default function LargerContainerContent() {
           {Object.keys(weatherData).length > 0 && (
             <>
 
-              <Recommendation>Não, você não deve levar um casaquinho!</Recommendation>
+              <LargerContainerRecomendation />
 
               <RightsReserved darkmode={darkmode ? 'true' : 'false'}>Dados fornecidos pela <span>Open Weather API</span></RightsReserved>
 
@@ -79,29 +80,6 @@ const RightsReservedResponsive = styled.h4`
     display: block;
     text-align: center;
     margin-bottom: 50px;
-  }
-`
-
-const Recommendation = styled.div`
-    width: calc(100% - 10%);
-    height: 150px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    color: #AFADAD;
-    font-family: 'Poppins';
-    font-size: 24px;
-    font-style: italic;
-    font-weight: 400;
-    line-height: 48px;
-    letter-spacing: 0em;
-
-    @media (max-width: 1230px) {
-    text-align: center;
-    height: 120px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 `
 

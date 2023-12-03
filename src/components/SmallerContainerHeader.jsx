@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Image from '../assets/casaco.png';
 import { useContext } from "react";
 import { WeatherContext } from "../contexts/WeatherContext";
+import 'animate.css';
 
 export default function SmallerContainerHeader() {
 
@@ -36,6 +37,8 @@ const Header = styled.div`
 const ImageHeader = styled.img`
     width: 120px;
     height: 120px;
+    animation: bounce; 
+    animation-duration: 2s;
 `;
 
 const Title = styled.h2`

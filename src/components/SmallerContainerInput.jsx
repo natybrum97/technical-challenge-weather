@@ -20,7 +20,7 @@ export default function SmallerContainerInput() {
         return;
       }
 
-      const apiKey = '698a3cff67a313e586b000b905013ad9';
+      const apiKey = import.meta.env.VITE_API_KEY;
       const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}`;
 
       const response = await axios.get(apiUrl);

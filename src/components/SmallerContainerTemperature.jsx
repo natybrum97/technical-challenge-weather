@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Circle from '../assets/circle.png';
 import { useContext } from "react";
 import { WeatherContext } from "../contexts/WeatherContext";
 import { convertToFahrenheit } from "../useful/convertToFahrenheit";
@@ -16,11 +15,14 @@ export default function SmallerContainerTemperature() {
       {Object.keys(weatherData).length > 0 && (
         <>
           <TemperatureMeasurement>
-            <ImageTemperature src={Circle} alt="Tópico" />
-            <TemperatureText darkmode={darkmode ? 'true' : 'false'}>
+            <Position>
+              <Circle weatherDescription={weatherData.description} />
+            </Position>
+            <TemperatureText darkmode={darkmode ? 'true' : 'false'} weatherDescription={weatherData.description}>
               {temperature.toFixed(0)}
             </TemperatureText>
-            <Degrees darkmode={darkmode ? 'true' : 'false'}>
+
+            <Degrees darkmode={darkmode ? 'true' : 'false'} weatherDescription={weatherData.description}>
               {fahrenheit ? '°F' : '°C'}
             </Degrees>
           </TemperatureMeasurement>
@@ -43,11 +45,6 @@ const Temperature = styled.div`
     align-items: center;
 `
 
-const ImageTemperature = styled.img`
-    width: 150px;
-    height: 150px;
-`;
-
 const TemperatureMeasurement = styled.div`
     width: 500px;
     height: 150px;
@@ -55,6 +52,7 @@ const TemperatureMeasurement = styled.div`
     justify-content: center;
     align-items: flex-start;
 `
+
 const TemperatureText = styled.p`
    width: 175px;
    height: 150px;
@@ -64,8 +62,28 @@ const TemperatureText = styled.p`
    line-height: 140px;
    letter-spacing: 0em;
    text-align: left;
-   color: #EC6E4C;
-`
+   color: ${(props) => {
+    switch (props.weatherDescription) {
+      case "Clear":
+        return "#FF7F00";
+      case "Clouds":
+        return "#808080";
+      case "Rain":
+        return "#0000FF";
+      case "Snow":
+        return "#AFADAD";
+      case "Thunderstorm":
+        return "#800080";
+      case "Drizzle":
+        return "#00BFFF";
+      case "Mist":
+        return "#AFADAD";
+      default:
+        return props.darkmode === 'true' ? "#FFF" : "#222222";
+    }
+  }};
+`;
+
 
 const Degrees = styled.p`
     width: 144px;
@@ -75,11 +93,64 @@ const Degrees = styled.p`
     font-weight: 300;
     line-height: 100px;
     letter-spacing: 0em;
-    text-align: left;
-    color: #EC6E4C;
+    text-align: right;
+    color: ${(props) => {
+    switch (props.weatherDescription) {
+      case "Clear":
+        return "#FF7F00";
+      case "Clouds":
+        return "#808080";
+      case "Rain":
+        return "#0000FF";
+      case "Snow":
+        return "#D3D3D3";
+      case "Thunderstorm":
+        return "#800080";
+      case "Drizzle":
+        return "#ADD8E6";
+      case "Mist":
+        return "#D3D3D3";
+      default:
+        return props.darkmode === 'true' ? "#FFF" : "#222222";
+    }
+  }};
 `
 
 const Weather = styled.h5`
      color: ${(props) => (props.darkmode === 'true' ? "#FFF" : "#222222")};
      text-transform: capitalize;
+`;
+
+const Circle = styled.div`
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: ${(props) => {
+    switch (props.weatherDescription) {
+      case "Clear":
+        return "#FF7F00";
+      case "Clouds":
+        return "#808080";
+      case "Rain":
+        return "#0000FF";
+      case "Snow":
+        return "#D3D3D3";
+      case "Thunderstorm":
+        return "#800080";
+      case "Drizzle":
+        return "#ADD8E6";
+      case "Mist":
+        return "#D3D3D3";
+      default:
+        return props.darkmode === 'true' ? "#FFF" : "#222222";
+    }
+  }};
+`;
+
+const Position = styled.div`
+    width: 150px;
+    height: 150px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 `;
