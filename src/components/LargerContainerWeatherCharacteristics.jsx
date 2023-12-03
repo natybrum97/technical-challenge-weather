@@ -15,30 +15,25 @@ export default function LargerContainerWeatherCharacteristics() {
 
     return (
         <WeatherCharacteristics>
-            {Object.keys(weatherData).length > 0 && (
-                <>
-                    <Characteristics>
-                        <Text>Mínima</Text>
-                        <Value>{minimumTemperature.toFixed(0)}{fahrenheit ? '° F' : '° C'}</Value>
-                    </Characteristics>
+            <Characteristics>
+                <Text>Mínima</Text>
+                <Value>{minimumTemperature.toFixed(0)}{fahrenheit ? '° F' : '° C'}</Value>
+            </Characteristics>
 
-                    <Characteristics>
-                        <Text>Máxima</Text>
-                        <Value>{maximumTemperature.toFixed(0)}{fahrenheit ? '° F' : '° C'}</Value>
-                    </Characteristics>
+            <Characteristics>
+                <Text>Máxima</Text>
+                <Value>{maximumTemperature.toFixed(0)}{fahrenheit ? '° F' : '° C'}</Value>
+            </Characteristics>
 
-                    <Characteristics>
-                        <Text>Umidade</Text>
-                        <Value>{weatherData.humidity}%</Value>
-                    </Characteristics>
+            <Characteristics>
+                <Text>Umidade</Text>
+                <Value>{weatherData.humidity}%</Value>
+            </Characteristics>
 
-                    <Characteristics>
-                        <Text>Velocidade do vento</Text>
-                        <Value>{weatherData.speed} m/s</Value>
-                    </Characteristics>
-                </>
-            )}
-
+            <Characteristics>
+                <Text>Velocidade do vento</Text>
+                <Value>{weatherData.speed} m/s</Value>
+            </Characteristics>
         </WeatherCharacteristics>
     )
 }

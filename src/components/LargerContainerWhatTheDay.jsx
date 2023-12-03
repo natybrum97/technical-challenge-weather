@@ -14,30 +14,23 @@ export default function WhatTheDay() {
     };
 
     return (
-
         <DaysContainer>
-
-            {Object.keys(weatherData).length > 0 && (
-                <>
-                    <TodayButton
-                        darkmode={darkmode ? 'true' : 'false'}
-                        selected={today}
-                        onClick={handleTodayClick}
-                        disabled={today}
-                    >
-                        Hoje
-                    </TodayButton>
-                    <NextDaysButton
-                        darkmode={darkmode ? 'true' : 'false'}
-                        selected={!today}
-                        onClick={handleNextDaysClick}
-                        disabled={!today}
-                    >
-                        Próximos dias
-                    </NextDaysButton>
-                </>
-            )}
-
+            <TodayButton
+                darkmode={darkmode ? 'true' : 'false'}
+                selected={today}
+                onClick={handleTodayClick}
+                disabled={today}
+            >
+                Hoje
+            </TodayButton>
+            <NextDaysButton
+                darkmode={darkmode ? 'true' : 'false'}
+                selected={!today}
+                onClick={handleNextDaysClick}
+                disabled={!today}
+            >
+                Próximos dias
+            </NextDaysButton>
         </DaysContainer>
     );
 }

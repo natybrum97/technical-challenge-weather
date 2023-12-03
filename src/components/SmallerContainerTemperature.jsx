@@ -12,26 +12,22 @@ export default function SmallerContainerTemperature() {
 
   return (
     <Temperature>
-      {Object.keys(weatherData).length > 0 && (
-        <>
-          <TemperatureMeasurement>
-            <Position>
-              <Circle weatherDescription={weatherData.description} />
-            </Position>
-            <TemperatureText darkmode={darkmode ? 'true' : 'false'} weatherDescription={weatherData.description}>
-              {temperature.toFixed(0)}
-            </TemperatureText>
+      <TemperatureMeasurement>
+        <Position>
+          <Circle weatherDescription={weatherData.description} />
+        </Position>
+        <TemperatureText darkmode={darkmode ? 'true' : 'false'} weatherDescription={weatherData.description}>
+          {temperature.toFixed(0)}
+        </TemperatureText>
 
-            <Degrees darkmode={darkmode ? 'true' : 'false'} weatherDescription={weatherData.description}>
-              {fahrenheit ? '°F' : '°C'}
-            </Degrees>
-          </TemperatureMeasurement>
+        <Degrees darkmode={darkmode ? 'true' : 'false'} weatherDescription={weatherData.description}>
+          {fahrenheit ? '°F' : '°C'}
+        </Degrees>
+      </TemperatureMeasurement>
 
-          <Weather darkmode={darkmode ? 'true' : 'false'}>
-            {translateWeatherDescription(weatherData.description)}
-          </Weather>
-        </>
-      )}
+      <Weather darkmode={darkmode ? 'true' : 'false'}>
+        {translateWeatherDescription(weatherData.description)}
+      </Weather>
     </Temperature>
   );
 }

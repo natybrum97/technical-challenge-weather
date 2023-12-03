@@ -54,24 +54,17 @@ export default function SmallerContainerInput() {
 
   return (
     <Input>
-
-      {Object.keys(weatherData).length > 0 && (
-        <>
-          <Border>
-            <ImageSearch src={Search} alt="Lupa" onClick={getWeather} />
-            <input
-              placeholder="Procure por uma cidade"
-              type="city"
-              id="city"
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              onKeyPress={handleKeyPress}
-            />
-          </Border>
-
-        </>
-      )}
-
+      <Border>
+        <ImageSearch src={Search} alt="Lupa" onClick={getWeather} />
+        <input
+          placeholder="Procure por uma cidade"
+          type="city"
+          id="city"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+          onKeyPress={handleKeyPress}
+        />
+      </Border>
     </Input>
   );
 }

@@ -3,35 +3,33 @@ import SmallerContainerContent from "../components/SmallerContainerContent";
 import LargerContainerContent from "../components/LargerContainerContent";
 import { useContext } from "react";
 import { WeatherContext } from "../contexts/WeatherContext";
-
+import Formatting from "../components/Formatting";
 
 export default function Weather() {
-
   const { darkmode } = useContext(WeatherContext);
 
   return (
     <>
-
+      <Formatting />
       <Container>
-
-        <SmallerContainer darkmode = {darkmode ? 'true' : 'false'}>
+        <SmallerContainer darkmode={darkmode ? 'true' : 'false'}>
           <SmallerContainerContent />
         </SmallerContainer>
 
-        <LargerContainer darkmode = {darkmode ? 'true' : 'false'}>
+        <LargerContainer darkmode={darkmode ? 'true' : 'false'}>
           <LargerContainerContent />
         </LargerContainer>
-
       </Container>
     </>
-
   );
 }
 
 const Container = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   border: 4px solid #D8D8D8;
+  min-height: 100vh;
 
   @media (max-width: 1230px) {
     display: flex;
@@ -68,5 +66,3 @@ const LargerContainer = styled.section`
     height: auto;
   }
 `;
-
-

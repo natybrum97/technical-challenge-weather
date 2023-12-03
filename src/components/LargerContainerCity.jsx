@@ -8,14 +8,8 @@ export default function LargerContainerCity() {
 
   return (
     <CityContainer>
-
-      {Object.keys(weatherData).length > 0 && (
-        <>
-          <City darkmode={darkmode ? 'true' : 'false'}>{weatherData.city}</City>
-          <Coordinates darkmode={darkmode ? 'true' : 'false'}>Lat: {weatherData.latitude}   Long: {weatherData.longitude}</Coordinates>
-        </>
-      )}
-
+      <City darkmode={darkmode ? 'true' : 'false'}>{weatherData.city}</City>
+      <Coordinates darkmode={darkmode ? 'true' : 'false'}>Lat: {weatherData.latitude}   Long: {weatherData.longitude}</Coordinates>
     </CityContainer>
   )
 }

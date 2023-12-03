@@ -25,19 +25,14 @@ export default function LargerContainerContent() {
         <>
           <LargerContainerWeatherCharacteristics />
 
-          {Object.keys(weatherData).length > 0 && (
-            <>
+          <LargerContainerRecomendation />
 
-              <LargerContainerRecomendation />
+          <RightsReserved darkmode={darkmode ? 'true' : 'false'}>Dados fornecidos pela <span>Open Weather API</span></RightsReserved>
 
-              <RightsReserved darkmode={darkmode ? 'true' : 'false'}>Dados fornecidos pela <span>Open Weather API</span></RightsReserved>
-
-              <RightsReservedResponsive darkmode={darkmode ? 'true' : 'false'}>Todos os direitos reservados. 2023.</RightsReservedResponsive>
-            </>
-          )}
-
+          <RightsReservedResponsive darkmode={darkmode ? 'true' : 'false'}>Todos os direitos reservados. 2023.</RightsReservedResponsive>
         </>
       )}
+      
       {today === false &&
         <>
           <WeatherChart />

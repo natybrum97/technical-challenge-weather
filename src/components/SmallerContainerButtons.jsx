@@ -9,27 +9,21 @@ export default function SmallerContainerButtons() {
 
     return (
         <Buttons>
+            <SwitchContainer>
+                <Switch
+                    onChange={changeForFahrenheit}
+                    checked={fahrenheit}
+                />
+                <Texts darkmode={darkmode ? 'true' : 'false'}>°F</Texts>
+            </SwitchContainer>
 
-            {Object.keys(weatherData).length > 0 && (
-                <>
-                    <SwitchContainer>
-                        <Switch
-                            onChange={changeForFahrenheit}
-                            checked={fahrenheit}
-                        />
-                        <Texts darkmode={darkmode ? 'true' : 'false'}>°F</Texts>
-                    </SwitchContainer>
-
-                    <SwitchContainer>
-                        <Switch
-                            onChange={changeForDarkMode}
-                            checked={darkmode}
-                        />
-                        <Texts darkmode={darkmode ? 'true' : 'false'}>Dark Mode</Texts>
-                    </SwitchContainer>
-                </>
-            )}
-
+            <SwitchContainer>
+                <Switch
+                    onChange={changeForDarkMode}
+                    checked={darkmode}
+                />
+                <Texts darkmode={darkmode ? 'true' : 'false'}>Dark Mode</Texts>
+            </SwitchContainer>
         </Buttons>
     )
 }

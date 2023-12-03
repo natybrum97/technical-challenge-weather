@@ -6,18 +6,12 @@ import 'animate.css';
 
 export default function SmallerContainerHeader() {
 
-    const { darkmode, weatherData } = useContext(WeatherContext);
+    const { darkmode } = useContext(WeatherContext);
 
     return (
         <Header>
-
-            {Object.keys(weatherData).length > 0 && (
-                <>
-                    <ImageHeader src={Image} alt="Casaquinho" />
-                    <Title darkmode={darkmode ? 'true' : 'false'}>Levo um casaquinho?</Title>
-                </>
-            )}
-
+            <ImageHeader src={Image} alt="Casaquinho" />
+            <Title darkmode={darkmode ? 'true' : 'false'}>Levo um casaquinho?</Title>
         </Header>
     )
 }
