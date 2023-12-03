@@ -3,27 +3,35 @@ import Circle from '../assets/circle.png';
 import { useContext } from "react";
 import { WeatherContext } from "../contexts/WeatherContext";
 import { convertToFahrenheit } from "../useful/convertToFahrenheit";
+import { translateWeatherDescription } from "../useful/translateWeatherDescription";
 
 export default function SmallerContainerTemperature() {
+  const { darkmode, fahrenheit, weatherData } = useContext(WeatherContext);
 
-    const { darkmode, fahrenheit } = useContext(WeatherContext);
+  const temperatureCelsius = weatherData.temperature - 273.15;
+  const temperature = fahrenheit ? convertToFahrenheit(temperatureCelsius) : temperatureCelsius;
 
-    const temperatureCelsius = 30;
-    const temperature = fahrenheit ? convertToFahrenheit(temperatureCelsius) : temperatureCelsius;
+  return (
+    <Temperature>
+      {Object.keys(weatherData).length > 0 && (
+        <>
+          <TemperatureMeasurement>
+            <ImageTemperature src={Circle} alt="Tópico" />
+            <TemperatureText darkmode={darkmode ? 'true' : 'false'}>
+              {temperature.toFixed(0)}
+            </TemperatureText>
+            <Degrees darkmode={darkmode ? 'true' : 'false'}>
+              {fahrenheit ? '°F' : '°C'}
+            </Degrees>
+          </TemperatureMeasurement>
 
-    return (
-        <Temperature>
-
-            <TemperatureMeasurement>
-                <ImageTemperature src={Circle} alt="Tópico" />
-                <TemperatureText darkmode={darkmode ? 'true' : 'false'}>{temperature.toFixed(0)}</TemperatureText>
-                <Degrees darkmode={darkmode ? 'true' : 'false'}>{fahrenheit ? '°F' : '°C'}</Degrees>
-            </TemperatureMeasurement>
-
-            <Weather darkmode={darkmode ? 'true' : 'false'}>Céu aberto</Weather>
-
-        </Temperature>
-    )
+          <Weather darkmode={darkmode ? 'true' : 'false'}>
+            {translateWeatherDescription(weatherData.description)}
+          </Weather>
+        </>
+      )}
+    </Temperature>
+  );
 }
 
 const Temperature = styled.div`
@@ -73,4 +81,5 @@ const Degrees = styled.p`
 
 const Weather = styled.h5`
      color: ${(props) => (props.darkmode === 'true' ? "#FFF" : "#222222")};
+     text-transform: capitalize;
 `;

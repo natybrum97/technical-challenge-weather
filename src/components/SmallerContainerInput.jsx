@@ -1,19 +1,78 @@
 import styled from "styled-components";
 import Search from '../assets/search.png';
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
+import axios from 'axios';
+import { WeatherContext } from "../contexts/WeatherContext";
 
 export default function SmallerContainerInput() {
 
-    const [city, setCity] = useState('');
+  const [city, setCity] = useState('São Paulo');
+  const { weatherData, setWeatherData } = useContext(WeatherContext);
 
-    return (
-        <Input>
-            <Border>
-                <ImageSearch src={Search} alt="Lupa" />
-                <input placeholder="Procure por uma cidade" type="city" id="city" value={city} onChange={(e) => setCity(e.target.value)} />
-            </Border>
-        </Input>
-    )
+  useEffect(() => {
+    getWeather();
+  }, [city, setWeatherData]);
+
+  const getWeather = async () => {
+    try {
+      if (!city) {
+        console.error('Cidade não especificada.');
+        return;
+      }
+
+      const apiKey = '698a3cff67a313e586b000b905013ad9';
+      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}`;
+
+      const response = await axios.get(apiUrl);
+
+      if (response.data.cod === '404') {
+        alert('Cidade não encontrada. Por favor, insira um nome de cidade válido.');
+      } else {
+        setWeatherData({
+          city: response.data.name,
+          description: response.data.weather[0]?.main || 'Descrição não disponível',
+          latitude: response.data.coord.lat,
+          longitude: response.data.coord.lon,
+          minTemperature: response.data.main.temp_min,
+          maxTemperature: response.data.main.temp_max,
+          temperature: response.data.main.temp,
+          humidity: response.data.main.humidity,
+          speed: response.data.wind.speed
+        });
+      }
+    } catch (error) {
+      console.error('Erro ao buscar dados meteorológicos:', error);
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      getWeather();
+    }
+  };
+
+  return (
+    <Input>
+
+      {Object.keys(weatherData).length > 0 && (
+        <>
+          <Border>
+            <ImageSearch src={Search} alt="Lupa" onClick={getWeather} />
+            <input
+              placeholder="Procure por uma cidade"
+              type="city"
+              id="city"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              onKeyPress={handleKeyPress}
+            />
+          </Border>
+
+        </>
+      )}
+
+    </Input>
+  );
 }
 
 const Input = styled.div`

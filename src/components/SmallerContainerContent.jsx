@@ -9,7 +9,7 @@ import SmallerContainerDayAndHour from "./SmallerContainerDayAndHour";
 
 export default function SmallerContainerContent() {
 
-    const { darkmode } = useContext(WeatherContext);
+    const { darkmode, weatherData } = useContext(WeatherContext);
 
     return (
 
@@ -21,13 +21,17 @@ export default function SmallerContainerContent() {
 
             <SmallerContainerTemperature />
 
-            <Divider></Divider>
+            {Object.keys(weatherData).length > 0 && (
+                <>
+                    <Divider></Divider>
 
-            <SmallerContainerDayAndHour />
+                    <SmallerContainerDayAndHour />
 
-            <SmallerContainerButtons />
+                    <SmallerContainerButtons />
 
-            <RightsReserved darkmode={darkmode ? 'true' : 'false'}>Todos os direitos reservados. 2023.</RightsReserved>
+                    <RightsReserved darkmode={darkmode ? 'true' : 'false'}>Todos os direitos reservados. 2023.</RightsReserved>
+                </>
+            )}
 
         </PageContainer>
 

@@ -5,12 +5,18 @@ import { WeatherContext } from "../contexts/WeatherContext";
 
 export default function SmallerContainerHeader() {
 
-    const { darkmode } = useContext(WeatherContext);
+    const { darkmode, weatherData } = useContext(WeatherContext);
 
     return (
         <Header>
-            <ImageHeader src={Image} alt="Casaquinho" />
-            <Title darkmode={darkmode ? 'true' : 'false'}>Levo um casaquinho?</Title>
+
+            {Object.keys(weatherData).length > 0 && (
+                <>
+                    <ImageHeader src={Image} alt="Casaquinho" />
+                    <Title darkmode={darkmode ? 'true' : 'false'}>Levo um casaquinho?</Title>
+                </>
+            )}
+
         </Header>
     )
 }
