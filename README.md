@@ -10,7 +10,7 @@ This is a front-end web application, where, based on the name of a city, weather
 
 The deployment was done using Vercel:
 
-- 
+- https://technical-challenge-weather.vercel.app/
 
 ### Technologies Used
 
@@ -20,6 +20,7 @@ For this project, the following technologies were used:
 - Styled Components for styling;
 - Recharts for graph construction;
 - OpenWeatherMap website public API;
+- Animate.css.
 
 ### How it Works
 
@@ -71,5 +72,14 @@ npm run dev
 
 ## How to configure the .env file
 
-- 
-- 
+1. Initially change the name of .env.example to .env;
+
+2. Go to the OpenWeatherMap public API website and create a free API key;
+
+3. Paste this key into the flagged part of the .env and save the change:
+
+```bash
+VITE_API_KEY=YOUR_API_KEY
+```
+
+4. Ready, your .env file has been configured and you can now test your application locally.
