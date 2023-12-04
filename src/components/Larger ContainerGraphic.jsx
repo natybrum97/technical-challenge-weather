@@ -15,22 +15,17 @@ const WeatherChart = () => {
         const response = await axios.get(
           `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`
         );
-
         const today = new Date();
         const daysOfWeek = ["dom", "seg", "ter", "qua", "qui", "sex", "sáb", "dom"];
-
-        // Extrair os dados relevantes do objeto de resposta
         const extractedData = response.data.list.slice(0, 8).map((item, index) => ({
           date: `${format(addDays(today, index), 'dd/MM')} (${daysOfWeek[index]})`,
-          temperature: Math.ceil(item.main.temp - 273.15), // Arredondar para o próximo número inteiro
+          temperature: Math.ceil(item.main.temp - 273.15),
         }));
-
         setWeatherData(extractedData);
       } catch (error) {
         console.error('Erro ao buscar dados da API:', error);
       }
     };
-
     fetchData();
   }, [city]);
 

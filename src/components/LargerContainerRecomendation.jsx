@@ -11,8 +11,6 @@ export default function LargerContainerRecomendation() {
     const max = weatherData.maxTemperature - 273.15;
     const temp = weatherData.temperature - 273.15;
 
-    console.log(weatherData.description);
-
     return (
         <Recommendation>
 

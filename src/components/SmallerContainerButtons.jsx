@@ -5,7 +5,7 @@ import Switch from "react-switch";
 
 export default function SmallerContainerButtons() {
 
-    const { fahrenheit, darkmode, changeForFahrenheit, changeForDarkMode, weatherData } = useContext(WeatherContext);
+    const { fahrenheit, darkmode, changeForFahrenheit, changeForDarkMode } = useContext(WeatherContext);
 
     return (
         <Buttons>

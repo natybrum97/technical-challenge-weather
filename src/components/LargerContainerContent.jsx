@@ -9,7 +9,7 @@ import WeatherChart from "./Larger ContainerGraphic";
 
 export default function LargerContainerContent() {
 
-  const { darkmode, weatherData, today } = useContext(WeatherContext);
+  const { darkmode, today } = useContext(WeatherContext);
 
   return (
 
@@ -32,7 +32,7 @@ export default function LargerContainerContent() {
           <RightsReservedResponsive darkmode={darkmode ? 'true' : 'false'}>Todos os direitos reservados. 2023.</RightsReservedResponsive>
         </>
       )}
-      
+
       {today === false &&
         <>
           <WeatherChart />

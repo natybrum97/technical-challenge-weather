@@ -6,9 +6,7 @@ import { WeatherContext } from "../contexts/WeatherContext";
 
 export default function SmallerContainerInput() {
 
-  const { weatherData, setWeatherData, city, setCity } = useContext(WeatherContext);
-
-  console.log(city);
+  const { setWeatherData, city, setCity } = useContext(WeatherContext);
 
   useEffect(() => {
     getWeather();

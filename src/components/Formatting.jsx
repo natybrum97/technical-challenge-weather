@@ -4,15 +4,15 @@ import { WeatherContext } from '../contexts/WeatherContext';
 
 const Formatting = () => {
 
-    const { weatherData } = useContext(WeatherContext);
-    const weatherDataEmpty = Object.keys(weatherData).length > 0;
+  const { weatherData } = useContext(WeatherContext);
+  const weatherDataEmpty = Object.keys(weatherData).length > 0;
 
-    return (
-        <Overlay weatherDataEmpty={weatherDataEmpty}>
-            <OverlayContent>
-            </OverlayContent>
-        </Overlay>
-    );
+  return (
+    <Overlay weatherDataEmpty={weatherDataEmpty}>
+      <OverlayContent>
+      </OverlayContent>
+    </Overlay>
+  );
 };
 
 const Overlay = styled.div`

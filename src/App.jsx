@@ -10,9 +10,9 @@ export default function App() {
     <PagesContainer>
       <BrowserRouter>
         <WeatherProvider>
-            <Routes>
-              <Route path="/" element={<Weather />} />
-            </Routes>
+          <Routes>
+            <Route path="/" element={<Weather />} />
+          </Routes>
         </WeatherProvider>
       </BrowserRouter>
     </PagesContainer>
